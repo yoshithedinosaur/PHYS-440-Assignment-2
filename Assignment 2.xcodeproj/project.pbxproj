@@ -17,6 +17,8 @@
 		A3FA419527A496B900ADDF0F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA416B27A496B600ADDF0F /* ContentView.swift */; };
 		A3FA419627A496B900ADDF0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3FA416C27A496B900ADDF0F /* Assets.xcassets */; };
 		A3FA419727A496B900ADDF0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3FA416C27A496B900ADDF0F /* Assets.xcassets */; };
+		A3FA41A727A49D1E00ADDF0F /* SinSumMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA41A627A49D1E00ADDF0F /* SinSumMethod.swift */; };
+		A3FA41A827A49D1E00ADDF0F /* SinSumMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FA41A627A49D1E00ADDF0F /* SinSumMethod.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,7 @@
 		A3FA418A27A496B900ADDF0F /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3FA418E27A496B900ADDF0F /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
 		A3FA419027A496B900ADDF0F /* Tests_macOSLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOSLaunchTests.swift; sourceTree = "<group>"; };
+		A3FA41A627A49D1E00ADDF0F /* SinSumMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinSumMethod.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +102,7 @@
 			children = (
 				A3FA416A27A496B600ADDF0F /* Assignment_2App.swift */,
 				A3FA416B27A496B600ADDF0F /* ContentView.swift */,
+				A3FA41A627A49D1E00ADDF0F /* SinSumMethod.swift */,
 				A3FA416C27A496B900ADDF0F /* Assets.xcassets */,
 			);
 			path = Shared;
@@ -301,6 +305,7 @@
 			files = (
 				A3FA419427A496B900ADDF0F /* ContentView.swift in Sources */,
 				A3FA419227A496B900ADDF0F /* Assignment_2App.swift in Sources */,
+				A3FA41A727A49D1E00ADDF0F /* SinSumMethod.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,6 +315,7 @@
 			files = (
 				A3FA419527A496B900ADDF0F /* ContentView.swift in Sources */,
 				A3FA419327A496B900ADDF0F /* Assignment_2App.swift in Sources */,
+				A3FA41A827A49D1E00ADDF0F /* SinSumMethod.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

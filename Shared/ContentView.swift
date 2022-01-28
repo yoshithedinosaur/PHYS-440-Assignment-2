@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
+        Text("\(sinSum(sinXIn: .pi/4))")
             .padding()
     }
 }
