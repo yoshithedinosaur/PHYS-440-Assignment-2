@@ -9,6 +9,21 @@ import Foundation
 
 class SinSumMethod: ObservableObject {
 
+    @Published var threshold = 1e-7
+    
+    /// findMaxIterN
+    /// Parameter sinXIn: finds the number of iterations maxIterN for this x values until the Nth iteration gives a value below the threshold
+    /// Returns: maxIterN
+    func findMaxIterN(sinXIn: Double) -> Int {
+        var maxIterN: Int = 1
+        var sinXN = 0.0
+        while sinXN <= threshold {
+            sinXN = sinXNth(sinXIn: sinXIn, iterN: maxIterN)
+            maxIterN += 1
+        }
+        return maxIterN
+    }
+    
     /// calculateSinExpansion
     /// Parameter x: values of x in sin(x)
     /// Returns: sin(x)
@@ -20,13 +35,23 @@ class SinSumMethod: ObservableObject {
               /__ n = 1      (2n - 1)!
 
      */
-    @Published var numberOfIter = 17
     func calculateSinExpansion(sinXIn: Double) -> Double {
         var sinX: Double = 0.0
+        
+        let numberOfIter: Int = findMaxIterN(sinXIn: sinXIn)
+        
         for iterN in stride(from: 1, to: numberOfIter, by: 1) {
-            sinX += Double(pow(-1.0, Double(iterN-1))) * Double(pow(sinXIn,Double(2*iterN-1))) / factorial(2*iterN-1)
+            sinX += sinXNth(sinXIn: sinXIn, iterN: iterN)
         }
         return sinX
+    }
+    
+    /// sinXNth
+    /// Parameter sinXIn, iterN: gives the Nth (iterN) term in the Taylor expansion of sin for sinXIn
+    /// Return: nth term
+    func sinXNth(sinXIn: Double, iterN: Int) -> Double {
+        return Double(pow(-1.0, Double(iterN-1))) * Double(pow(sinXIn,Double(2*iterN-1))) / factorial(2*iterN-1)
+        
     }
     
     
