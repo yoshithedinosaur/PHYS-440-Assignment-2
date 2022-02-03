@@ -17,10 +17,11 @@ struct ContentView: View {
         Form {
             Section {
                 TextField("Input to Sin", text: $xInput)
+                .padding()
             }
         }
         HStack{
-            Button("Calculate cos(x)", action: {self.calculateSinFromGUI()} )
+            Button("Calculate sin(x)", action: {self.calculateSinFromGUI()} )
             .padding()
             
         }
@@ -34,12 +35,11 @@ struct ContentView: View {
         xInput = "\(x!)"
         
         var sin_x = 0.0
-        let actualsin_x = cos(x!)
+        let actualsin_x = sin(x!)
         var errorCalc = 0.0
         
         //Calculate the new plotting data and place in the plotDataModel
-        sin_x = sinSumOutput.SinSumMethod(sinXIn: x!)
-        
+        sin_x = sinSumOutput.calculateSinExpansion(sinXIn: x!)
 
         print("The sin(\(x!)) = \(sin_x)")
         print("computer calcuates \(actualsin_x)")
