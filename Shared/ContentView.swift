@@ -9,18 +9,57 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State private var expandedSin: Double = 0.0
+    @ObservedObject private var sinSumOutput = SinSumMethod()
+    @State var xInput = "0.0"
+    @State var error: String = "0.0"
     
     var body: some View {
         Form {
             Section {
-                TextField("Input to Sin", text: $expandedSin, onCommit: {Task.init {await self.calculateSinExpansion()}})
+                TextField("Input to Sin", text: $xInput)
             }
         }
+        HStack{
+            Button("Calculate cos(x)", action: {self.calculateSinFromGUI()} )
+            .padding()
+            
+        }
     }
-}
+    
+    /// calculateCos_X
+    /// Function accepts the command to start the calculation from the GUI
+    func calculateSinFromGUI(){
+        
+        let x = Double(xInput)
+        xInput = "\(x!)"
+        
+        var sin_x = 0.0
+        let actualsin_x = cos(x!)
+        var errorCalc = 0.0
+        
+        //Calculate the new plotting data and place in the plotDataModel
+        sin_x = sinSumOutput.SinSumMethod(sinXIn: x!)
+        
 
-func calculateSinExpansion() async {
+        print("The sin(\(x!)) = \(sin_x)")
+        print("computer calcuates \(actualsin_x)")
+        
+        if(actualsin_x != 0.0){
+            
+            var numerator = sin_x - actualsin_x
+            
+            if(numerator == 0.0) {numerator = 1.0E-16}
+            
+            errorCalc = log10(abs((numerator)/actualsin_x))
+            
+        }
+        else {
+            errorCalc = 0.0
+        }
+        
+        error = "\(errorCalc)"
+        
+    }
     
 }
 
