@@ -47,6 +47,7 @@ class SinSumMethod: ObservableObject {
         return sinX
     }
     
+    
     /// sinXNth
     /// Parameter sinXIn, iterN: gives the Nth (iterN) term in the Taylor expansion of sin for sinXIn
     /// Return: nth term
@@ -63,5 +64,22 @@ class SinSumMethod: ObservableObject {
     func factorial(_ n: Int) -> Double {
       return (1...n).map(Double.init).reduce(1.0, *)
     }
+    
+    /// remapInputsToRange
+    /// Parameter sinXIn: takes sinXIn as double to remap
+    /// Return: sinXInRange
+    /// remaps input values so that 0 <= x <= pi is satisfied
+    func remapInputsToRange(sinXIn: Double) -> Double{
+        var multiplierVal = 1.0
+        var sinXInRange = sinXIn
+        if(sinXIn > (Double.pi) || sinXIn < 0){
+            multiplierVal = floor(sinXIn/(2*Double.pi))
+            sinXInRange = sinXIn - multiplierVal*2*Double.pi
+        }
+        
+        print("New x is: \(sinXInRange)")
+        return sinXInRange
+    }
+    
     
 }
