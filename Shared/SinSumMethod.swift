@@ -16,11 +16,12 @@ class SinSumMethod: ObservableObject {
     /// Returns: maxIterN
     func findMaxIterN(sinXIn: Double) -> Int {
         var maxIterN: Int = 1
-        var sinXN = 0.0
-        while sinXN <= threshold {
-            sinXN = sinXNth(sinXIn: sinXIn, iterN: maxIterN)
+        var sinXN = 1.0
+        while sinXN > threshold {
+            sinXN = abs(sinXNth(sinXIn: sinXIn, iterN: maxIterN))
             maxIterN += 1
         }
+        print("Number of iterations is \(maxIterN)")
         return maxIterN
     }
     

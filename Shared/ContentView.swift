@@ -11,6 +11,7 @@ struct ContentView: View {
     
     @ObservedObject private var sinSumOutput = SinSumMethod()
     @State var xInput = "0.0"
+    @State var sinOutput = "0.0"
     @State var error: String = "0.0"
     
     var body: some View {
@@ -19,11 +20,14 @@ struct ContentView: View {
                 TextField("Input to Sin", text: $xInput)
                 .padding()
             }
+            Text("Outputs")
+            TextField("sin(x):", text: $sinOutput)
+            TextField("Error (order of magnitude):", text: $error)
         }
+        
         HStack{
             Button("Calculate sin(x)", action: {self.calculateSinFromGUI()} )
             .padding()
-            
         }
     }
     
@@ -56,6 +60,8 @@ struct ContentView: View {
         else {
             errorCalc = 0.0
         }
+        
+        sinOutput = "\(sin_x)"
         
         error = "\(errorCalc)"
         
