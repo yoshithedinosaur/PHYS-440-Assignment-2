@@ -14,13 +14,14 @@ struct ContentView: View {
     @State var sinOutput = "0.0"
     @State var Nval = "0"
     @State var error: String = "0.0"
-    @State var nWhenCancel: [String] = ["0","0"]
-    @State var errorInRange = "0"
+    @State var nWhenCancel: [String] = ["0.0","0.0"]
+    @State var errorInRange = "0.0"
     
     var body: some View {
         Form{
             VStack(alignment: .center){
             Text("Landau Chapter 2 ")
+                    .padding(.bottom, 10)
             HStack{
                 VStack (alignment: .center) {
                     Section {
@@ -93,6 +94,7 @@ struct ContentView: View {
                             .frame(width: 230)
                     }
                 }
+                .padding(.leading, 20)
             }
             }
             .padding(.horizontal)
@@ -155,8 +157,11 @@ struct ContentView: View {
             nWhenCancel[1] = ("\(sinSumOutput.sinXNth(sinXIn: x!, iterN: firstN+1))")
         }
         
-        errorInRange = "\(errorCalcRe)"
-        
+        if (errorCalcRe != 0.0) {
+            errorInRange = "1e\(errorCalcRe)"
+        } else {
+            errorInRange = "0.0"
+        }
     }
     
 }
